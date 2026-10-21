@@ -1,0 +1,84 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  width: 100%; height: 100%; overflow: hidden;
+  background: #1a1208; color: #f5e6c8;
+  font-family: 'Sarabun', sans-serif; touch-action: none;
+}
+#game { position: fixed; inset: 0; }
+.hidden { display: none !important; }
+
+/* หน้าเข้าเกม */
+.panel {
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: min(92vw, 420px); padding: 28px; z-index: 10; text-align: center;
+  background: rgba(40, 20, 10, .95); border: 3px solid #c9a227; border-radius: 14px;
+  box-shadow: 0 0 40px rgba(201, 162, 39, .35);
+}
+.panel h1 { font-family: 'Charm', serif; font-size: 40px; color: #f2c94c; }
+.sub { margin: 6px 0 18px; opacity: .85; }
+#nameInput {
+  width: 100%; padding: 12px; font: 18px 'Sarabun'; text-align: center;
+  border-radius: 8px; border: 2px solid #8b5a2b; background: #2a1a0e; color: #fff;
+}
+#classPick { display: flex; gap: 8px; margin: 16px 0; }
+.cls {
+  flex: 1; padding: 10px 4px; cursor: pointer; border-radius: 8px;
+  border: 2px solid #8b5a2b; background: #3a2414; color: #f5e6c8; font: 700 16px 'Sarabun';
+}
+.cls small { display: block; font-weight: 400; font-size: 12px; opacity: .8; }
+.cls.selected { border-color: #f2c94c; background: #7a1f1f; }
+#startBtn {
+  width: 100%; padding: 14px; cursor: pointer; border: none; border-radius: 8px;
+  font: 700 20px 'Sarabun'; color: #2a1a0e; background: linear-gradient(#d4a72c, #a37b12);
+}
+.help { margin-top: 14px; font-size: 13px; opacity: .7; }
+
+/* HUD */
+#hud { position: fixed; inset: 0; pointer-events: none; z-index: 5; }
+#stats {
+  position: absolute; top: 10px; left: 10px; width: 270px; padding: 10px;
+  background: rgba(30, 15, 5, .8); border: 2px solid #c9a227; border-radius: 10px;
+}
+#title { font-weight: 700; margin-bottom: 6px; color: #f2c94c; }
+.bar { position: relative; height: 18px; margin-top: 4px; background: #2a1a0e; border-radius: 9px; overflow: hidden; }
+.fill { height: 100%; transition: width .2s; }
+.fill.hp { background: linear-gradient(#e05252, #9b1c1c); }
+.fill.exp { background: linear-gradient(#f2c94c, #a37b12); }
+.bar span {
+  position: absolute; inset: 0; text-align: center;
+  font-size: 12px; line-height: 18px; text-shadow: 0 1px 2px #000;
+}
+
+#chat { position: absolute; left: 10px; bottom: 10px; width: min(380px, 55vw); pointer-events: auto; }
+#chatLog {
+  max-height: 160px; overflow-y: auto; padding: 6px 8px; font-size: 14px;
+  background: rgba(0, 0, 0, .45); border-radius: 8px 8px 0 0;
+}
+#chatLog .sys { color: #f2c94c; }
+#chatLog b { color: #9fd3ff; }
+#chatInput {
+  width: 100%; padding: 8px; border: none; border-radius: 0 0 8px 8px;
+  background: rgba(20, 10, 5, .9); color: #fff; font: 14px 'Sarabun';
+}
+
+#actions {
+  position: absolute; right: 16px; bottom: 16px; pointer-events: auto;
+  display: flex; gap: 12px; align-items: flex-end;
+}
+#actions button {
+  width: 76px; height: 76px; border-radius: 50%; touch-action: manipulation;
+  border: 3px solid #f2c94c; background: rgba(122, 31, 31, .85);
+  color: #fff; font: 700 16px 'Sarabun'; transition: opacity .2s;
+}
+#actions #attackBtn { width: 96px; height: 96px; }
+#actions button.cd { opacity: .4; }
+
+#banner {
+  position: absolute; top: 18%; left: 50%; transform: translateX(-50%);
+  padding: 12px 24px; text-align: center; font-size: 22px; font-weight: 700;
+  background: rgba(122, 31, 31, .9); border: 2px solid #f2c94c; border-radius: 10px;
+}
+#deathScreen {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  background: rgba(60, 0, 0, .55); font-size: 28px; font-weight: 700;
+}

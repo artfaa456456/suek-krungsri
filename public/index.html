@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>ศึกกรุงศรี ออนไลน์</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=Charm:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game"></div>
+
+  <!-- หน้าเข้าเกม -->
+  <div id="login" class="panel">
+    <h1>ศึกกรุงศรี ออนไลน์</h1>
+    <p class="sub">ไต่เต้าจากพลทหารสู่พระยาแห่งกรุงศรีอยุธยา</p>
+    <input id="nameInput" maxlength="16" placeholder="ตั้งชื่อตัวละคร">
+    <div id="classPick">
+      <button data-cls="swordsman" class="cls selected">นักดาบ<small>ประชิด ดาเมจสูง</small></button>
+      <button data-cls="archer" class="cls">พลธนู<small>โจมตีระยะไกล</small></button>
+      <button data-cls="healer" class="cls">หมอยา<small>ฮีลทีม</small></button>
+    </div>
+    <button id="startBtn">เข้าสู่สนามรบ</button>
+    <p class="help">เดิน: WASD / ลูกศร / แตะพื้น · โจมตี: Space · สกิล: E · แชท: Enter</p>
+  </div>
+
+  <!-- HUD ระหว่างเล่น -->
+  <div id="hud" class="hidden">
+    <div id="stats">
+      <div id="title"></div>
+      <div class="bar"><div id="hpFill" class="fill hp"></div><span id="hpText"></span></div>
+      <div class="bar"><div id="expFill" class="fill exp"></div><span id="expText"></span></div>
+    </div>
+    <div id="chat">
+      <div id="chatLog"></div>
+      <input id="chatInput" maxlength="120" placeholder="กด Enter เพื่อแชท">
+    </div>
+    <div id="actions">
+      <button id="skillBtn">สกิล</button>
+      <button id="attackBtn">โจมตี</button>
+    </div>
+    <div id="banner" class="hidden"></div>
+    <div id="deathScreen" class="hidden">คุณพ่ายแพ้... กำลังฟื้นที่กรุงศรี</div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
